@@ -12,7 +12,8 @@
 - [ ] 각 기능 및 제약사항에 대한 단위테스트를 반드시 작성합니다.
 
 ### 아키텍쳐
-![스크린샷 2023-09-11 오후 11 42 55](https://github.com/SLIPPECAT/spread-receive-view/assets/119715555/54866562-db34-4611-82e2-5fb8614ea22a)
+![스크린샷 2023-09-11 오후 11 42 55](https://github.com/SLIPPECAT/spread-receive-view/assets/119715555/65f02d39-26a0-4858-8585-8432fe7edec4)
+
 
 ### API
 - 뿌리기 API: @Header: X-USER-ID, X-ROOM-ID, amount, recipients 입력받고 token을 반환 받음.
