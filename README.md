@@ -12,7 +12,8 @@
 - [ ] 각 기능 및 제약사항에 대한 단위테스트를 반드시 작성합니다.
 
 ### 아키텍쳐
-![스크린샷 2023-09-11 오후 11 42 55](https://github.com/SLIPPECAT/spread-receive-view/assets/119715555/65f02d39-26a0-4858-8585-8432fe7edec4)
+![스크린샷 2023-09-12 오전 12 01 59](https://github.com/SLIPPECAT/spread-receive-view/assets/119715555/c06dcb88-c46c-4ed1-a664-3fdd30d496ce)
+
 
 
 ### API
