@@ -30,7 +30,7 @@ dependencies {
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.projectlombok:lombok:1.18.28'
 
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation 'org.springframework.boot:spr    ing-boot-starter-test'
 
     implementation group: 'org.mariadb.jdbc', name: 'mariadb-java-client', version: '3.0.7'
 

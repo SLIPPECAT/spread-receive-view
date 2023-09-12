@@ -16,16 +16,16 @@ public class AdviceController {
 
     @ExceptionHandler(ReceiveException.class)
     public ResponseEntity<String> handleReceiveException(ReceiveException e){
-        HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
+        HttpStatus httpStatus = HttpStatus.valueOf(401);
 
-        return new ResponseEntity<>(e.getMessage(), httpStatus);
+        return new ResponseEntity<>("받기 실패", httpStatus);
     }
 
     @ExceptionHandler(ViewException.class)
     public ResponseEntity<String> handleViewException(ViewException e){
-        HttpStatus httpStatus = HttpStatus.BAD_REQUEST;
+        HttpStatus httpStatus = HttpStatus.valueOf(402);
 
-        return new ResponseEntity<>(e.getMessage(), httpStatus);
+        return new ResponseEntity<>("조회 실패", httpStatus);
     }
 
 }

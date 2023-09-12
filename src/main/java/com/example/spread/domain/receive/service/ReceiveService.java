@@ -6,6 +6,7 @@ import com.example.spread.domain.repository.SpreadDetailRepository;
 import com.example.spread.domain.repository.SpreadRepository;
 import com.example.spread.exception.ReceiveException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -20,6 +21,7 @@ public class ReceiveService {
     private final SpreadRepository spreadRepository;
     private final SpreadDetailRepository spreadDetailRepository;
 
+    @Async("asyncExecutor")
     @Transactional
     public int receiveMoney(Long userId, String roomId, String token) {
 

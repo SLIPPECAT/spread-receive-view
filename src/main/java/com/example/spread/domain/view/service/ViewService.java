@@ -7,6 +7,7 @@ import com.example.spread.domain.repository.SpreadRepository;
 import com.example.spread.domain.view.dto.ViewResponseDto;
 import com.example.spread.exception.ViewException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -25,6 +26,7 @@ public class ViewService {
     private final SpreadRepository spreadRepository;
     private final SpreadDetailRepository spreadDetailRepository;
     public int validatedDate = (7 * 24 * 60 * 60 * 1000);
+
     @Transactional
     public ViewResponseDto getSpreadInfo(Long userId, String token) {
         System.out.println("token = " + token);
@@ -41,16 +43,12 @@ public class ViewService {
                 .map(detail -> new ReceivedDetail(detail.getAmount(), detail.getUserId()))
                 .collect(Collectors.toList());
 
-        if(receivedDetails.isEmpty()){
-            throw new ViewException(NOT_ACCESSED);
-        }
-
         int totalAmount = spread.getTotalAmount();
         int allocatedAmount = receivedDetails.stream().mapToInt(SpreadDetail::getAmount).sum();
 
         SpreadDetail spreadDetail = spreadDetailRepository.findByUserId(userId);
         if (spreadDetail == null){
-            throw new ViewException(NOT_FOUND_SPREAD);
+            throw new ViewException(NOT_ACCESSED);
         }
 
         return ViewResponseDto.builder()

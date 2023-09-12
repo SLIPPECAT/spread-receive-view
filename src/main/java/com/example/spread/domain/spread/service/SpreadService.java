@@ -6,6 +6,7 @@ import com.example.spread.domain.repository.SpreadDetailRepository;
 import com.example.spread.domain.repository.SpreadRepository;
 import com.example.spread.exception.SpreadException;
 import lombok.RequiredArgsConstructor;
+import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -52,9 +53,11 @@ public class SpreadService {
     private String generateToken(){
         Random random = new Random();
         StringBuilder token = new StringBuilder();
+        char[] alphabet = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ".toCharArray();
         for (int i = 0; i < 3; i++) {
-            char ch = (char) (random.nextInt(26) + 'A');
-            token.append(ch);
+            int randomNum = random.nextInt(alphabet.length);
+            char randomChar = alphabet[randomNum];
+            token.append(randomChar);
         }
         return token.toString();
     }
